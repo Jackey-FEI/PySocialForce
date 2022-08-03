@@ -141,11 +141,14 @@ class EnvState:
             self._obstacles = []
         else:
             self._obstacles = []
-            for startx, endx, starty, endy in obstacles:
-                samples = int(np.linalg.norm((startx - endx, starty - endy)) * self.resolution)
-                line = np.array(
-                    list(
-                        zip(np.linspace(startx, endx, samples), np.linspace(starty, endy, samples))
-                    )
-                )
-                self._obstacles.append(line)
+            # for startx, endx, starty, endy in obstacles:
+            #     samples = int(np.linalg.norm((startx - endx, starty - endy)) * self.resolution)
+            #     line = np.array(
+            #         list(
+            #             zip(np.linspace(startx, endx, samples), np.linspace(starty, endy, samples))
+            #         )
+            #     )
+            #     #print(line)
+            #     self._obstacles.append(line)
+            self._obstacles=obstacles
+            print(self._obstacles)

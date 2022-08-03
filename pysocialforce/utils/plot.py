@@ -144,10 +144,24 @@ class SceneVisualizer:
         xy_limits = np.array(
             [minmax(state) for state in self.states]
         )  # (x_min, y_min, x_max, y_max)
-        xy_min = np.min(xy_limits[:, :2], axis=0) - margin
-        xy_max = np.max(xy_limits[:, 2:4], axis=0) + margin
-        self.ax.set(xlim=(xy_min[0], xy_max[0]), ylim=(xy_min[1], xy_max[1]))
-
+        xy_min = np.min(xy_limits[:, :2], axis=0) - margin-2
+        xy_max = np.max(xy_limits[:, 2:4], axis=0) + margin+3
+        #self.ax.set(xlim=(xy_min[0], xy_max[0]), ylim=(xy_min[1], xy_max[1]))
+        print("!!!!!")
+        print(xy_min)
+        obstacles=self.scene.get_obstacles()
+        xy_limits=np.array(obstacles)
+        xmin =np.min(xy_limits[:,0])
+        xmax =np.max(xy_limits[:,0])
+        ymin = np.min(xy_limits[:,1])
+        ymax = np.max(xy_limits[:,1])
+        # print("1!!!!")
+        # print(xy_limits)
+        # print(xmin)
+        # print(xmax)
+        # print(ymin)
+        # print(ymax)
+        self.ax.set(xlim=(xmin, xmax), ylim=(ymin, ymax))
         # # recompute the ax.dataLim
         # self.ax.relim()
         # # update ax.viewLim using the new dataLim
@@ -218,7 +232,10 @@ class SceneVisualizer:
 
     def plot_obstacles(self):
         for s in self.scene.get_obstacles():
-            self.ax.plot(s[:, 0], s[:, 1], "-o", color="black", markersize=2.5)
+            print(s)
+            print(s[0])
+            print(s[1])
+            self.ax.plot(s[0], s[1], "-o", color="black", markersize=2.5)
 
     def animation_init(self):
         self.plot_obstacles()
