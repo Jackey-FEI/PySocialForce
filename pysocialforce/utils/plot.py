@@ -151,10 +151,10 @@ class SceneVisualizer:
         print(xy_min)
         obstacles=self.scene.get_obstacles()
         xy_limits=np.array(obstacles)
-        xmin =np.min(xy_limits[:,0])
-        xmax =np.max(xy_limits[:,0])
-        ymin = np.min(xy_limits[:,1])
-        ymax = np.max(xy_limits[:,1])
+        xmin =np.min(xy_limits[:,0])-2
+        xmax =np.max(xy_limits[:,0])+3
+        ymin = np.min(xy_limits[:,1])-2
+        ymax = np.max(xy_limits[:,1])+3
         # print("1!!!!")
         # print(xy_limits)
         # print(xmin)
