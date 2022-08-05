@@ -197,7 +197,7 @@ class SceneVisualizer:
         if self.human_actors:
             for i, human in enumerate(self.human_actors):
                 human.center = current_state[i, :2]
-                human.set_radius(0.2)
+                human.set_radius(3)
                 # human.set_radius(radius[i])
         else:
             self.human_actors = [
