@@ -151,4 +151,4 @@ class EnvState:
             #     #print(line)
             #     self._obstacles.append(line)
             self._obstacles=obstacles
-            print(self._obstacles)
+            #print(self._obstacles)
