@@ -235,7 +235,7 @@ class SceneVisualizer:
             print(s)
             print(s[0])
             print(s[1])
-            self.ax.plot(s[0], s[1], "-o", color="black", markersize=2.5)
+            self.ax.plot(s[0], s[1], "-o", color="black", markersize=0.5)
 
     def animation_init(self):
         self.plot_obstacles()

@@ -12,10 +12,10 @@ if __name__ == "__main__":
     initial_state = np.array(
         [
             [200, 150,-1.0, 0.5, 100, 200],
-            [300, 100, 0.0, -1.0, 400, 150],
-            [400, 150, -2.0, 0.0, 300, 100],
-            [100, 30, 0.0, 2.0, 50, 100],
-            # [1.0, 1.0, 0.0, 0.5, -2.0, 1.0],
+            [300, 100, 0.0, -3.0, 400, 150],
+            [400, 150, 0.0, 3.0, 300, 100],
+            [100, 30, -3, 0.0, 50, 100],
+            # [1.0, 1.0, 0.0, 0.5, -6.0, 1.0],
             # [2.0, 0.0, 0.0, 0.5, 3.0, 10.0],
             # [0.0, 6.0, 0.5, 0.5, 5.0, 6.0],
             # [5.0, 6.0, -0.5, 0.5, 0.0, 6.0],
@@ -25,10 +25,14 @@ if __name__ == "__main__":
     groups = [[1], [0], [2],[3]]
     obs = []
     # list of linear obstacles given in the form of (x_min, x_max, y_min, y_max)
-    # for i in np.arange(0,10,0.1):
-    #     obs.append([-1,i])
+    for i in np.arange(0,10,0.1):
+        obs.append([390,150-i])
     # for i in np.arange(0,10,0.1):
     #     obs.append([3+i,i])
+    # obs.append([385,142])
+    # obs.append([384,142])
+    # obs.append([384.143])
+    # obs.append([385,143])
     #obs = [[-1, -1, -1, 11], [3, 3, -1, 11]]
     img = Image.open("sample_map.pgm").convert('L')
     img_np = np.array(img)  # ndarray
@@ -66,7 +70,7 @@ if __name__ == "__main__":
         config_file=Path(__file__).resolve().parent.joinpath("examples/example.toml"),
     )
     # update 80 steps
-    s.step(150)
+    s.step(200)
 
     with psf.plot.SceneVisualizer(s, "images/result") as sv:
         sv.animate()

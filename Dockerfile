@@ -49,5 +49,9 @@ RUN git clone https://github.com/Jackey-FEI/PySocialForce.git
 RUN conda create -n robostackenv python=3.9 -c conda-forge
 RUN /bin/bash -c ". activate robostackenv; conda config --env --add channels conda-forge; conda config --env --add channels robostack-experimental; conda config --env --add channels robostack; conda config --env --set channel_priority strict"
 
+WORKDIR /PySocialForce
+RUN pip install 'pysocialforce[test,plot]'
+
+
 ENV ROS_MASTER_URI=http://172.17.0.1:11311
 ENV ROS_IP=172.17.0.1
