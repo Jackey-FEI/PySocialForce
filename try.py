@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # obs.append([384.143])
     # obs.append([385,143])
     #obs = [[-1, -1, -1, 11], [3, 3, -1, 11]]
-    img = Image.open("sample_map.pgm").convert('L')
+    img = Image.open("defaultnew.pgm").convert('L')
     img_np = np.array(img)  # ndarray
     white=0
     wall=0
@@ -67,10 +67,10 @@ if __name__ == "__main__":
         initial_state,
         groups=groups,
         obstacles=obs,
-        config_file=Path(__file__).resolve().parent.joinpath("examples/example.toml"),
+        config_file=Path(__file__).resolve().parent.joinpath("pysocialforce/config/default.toml"),
     )
     # update 80 steps
-    s.step(200)
+    s.step(130)
 
     with psf.plot.SceneVisualizer(s, "images/result") as sv:
         sv.animate()
